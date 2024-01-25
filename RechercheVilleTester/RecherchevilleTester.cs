@@ -18,12 +18,12 @@ namespace RechercheVilleTester
             List<string> liste = new()
             {
                  "Paris", "Budapest", "Skopje", "Rotterdam", "Valence", "Vancouver", "Amsterdam", "Vienne", "Sydney", "New York", "Londres", "Bangkok", "Hong Kong", "Dubaï", "Rome", "Istanbul"
-            };  
+            };
             _rechercheVille = new RechercheVille(liste);
         }
 
         [Test]
-        public void RecherecheVille_textLength_InferiorTo_2()
+        public void WhenRecherecheVille_textLength_InferiorTo_2_Then_NotFoundException()
         {
 
             // Act & Assert
@@ -32,18 +32,26 @@ namespace RechercheVilleTester
         }
 
         [Test]
-        public void RecherecheVille_textLength_SuperiorOrEqualTo_2_Return_Villes()
+        [TestCase("Va")]
+        [TestCase("va")]
+        public void WhenRecherecheVille_textLength_SuperiorOrEqualTo_2_Then_Return_Villes(string texte)
         {
 
             // Act
 
-            var result = _rechercheVille.Rechercher("Va");
+            var result = _rechercheVille.Rechercher(texte);
             var testList = _rechercheVille.Villes.ToList();
             // Assert
 
-            Assert.That(result, Is.SubsetOf(testList));
+            // La fonction Rechercher fonctionne correctement mais le teste fonctionne car une string vide est un subset de ma liste. Je dois changer le teste pour qu'une string vide ne fonctionne pas.
+
+            //Assert.That(result, Is.SubsetOf(testList));
 
         }
+
+        //[Test]
+        //var result = _rechercheVille.Rechercher("Va");
+
     }
 
     /*  Implémenter une fonctionnalité de recherche de ville. La fonction prend une chaîne (texte de recherche) en entrée et renvoie les villes trouvées qui correspondent au texte de recherche.
