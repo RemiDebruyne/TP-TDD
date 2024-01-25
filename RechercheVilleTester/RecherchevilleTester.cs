@@ -10,42 +10,38 @@ namespace RechercheVilleTester
     [TestFixture]
     public class RechercheVilleTester
     {
-        private RechercheVille? _rVille;
+        private RechercheVille? _rechercheVille;
 
         [SetUp]
         public void Setup()
         {
-           
-            _rVille = new RechercheVille();
+            List<string> liste = new()
+            {
+                 "Paris", "Budapest", "Skopje", "Rotterdam", "Valence", "Vancouver", "Amsterdam", "Vienne", "Sydney", "New York", "Londres", "Bangkok", "Hong Kong", "Dubaï", "Rome", "Istanbul"
+            };  
+            _rechercheVille = new RechercheVille(liste);
         }
 
         [Test]
         public void RecherecheVille_textLength_InferiorTo_2()
         {
-            // Arrange
-            // Setup()
-
-
 
             // Act & Assert
 
-            Assert.Throws<NotFoundException>(() => _rVille.Rechercher("a"));
+            Assert.Throws<NotFoundException>(() => _rechercheVille.Rechercher("a"));
         }
 
-        [Ignore("A test plus tard")]
         [Test]
         public void RecherecheVille_textLength_SuperiorOrEqualTo_2_Return_Villes()
         {
-            // Arrange
-            // Setup()
 
             // Act
 
-            var result = _rVille.Rechercher("Pa");
-
+            var result = _rechercheVille.Rechercher("Va");
+            var testList = _rechercheVille.Villes.ToList();
             // Assert
 
-            Assert.IsTrue(result.Count >= 2);
+            Assert.That(result, Is.SubsetOf(testList));
 
         }
     }

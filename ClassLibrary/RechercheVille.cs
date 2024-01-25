@@ -8,17 +8,21 @@ namespace ClassLibrary
 {
     public class RechercheVille
     {
-        private List<string> _villes = new() { "Paris", "Budapest", "Skopje", "Rotterdam", "Valence", "Vancouver", "Amsterdam", "Vienne", "Sydney", "New York", "Londres", "Bangkok", "Hong Kong", "Dubaï", "Rome", "Istanbul" };
+        private List<string> _villes;
+        public List<string> Villes { get => _villes; set => _villes = value; }
+        public RechercheVille(List<string> ville)
+        {
+            Villes = ville;
+        }
 
 
         public List<string> Rechercher(string texte)
         {
             List<string> liste = new();
-            //List<string> liste = new();
 
             if (texte.Length < 2)
-               throw new NotFoundException("Veuillez entrer un text d'au moins deux caractères");
-            return liste;
+                throw new NotFoundException("Veuillez entrer un text d'au moins deux caractères");
+            return null;
 
             //string[] arr = texte.Split(' ');
             //foreach (var mot in arr)
