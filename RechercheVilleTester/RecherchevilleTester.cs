@@ -25,12 +25,12 @@ namespace RechercheVilleTester
             // Setup()
 
             // Act
-            string str = "";
-            var result = _rVille.Rechercher(str);
+
+            var result = _rVille.Rechercher("a");
 
             // Assert
 
-            Assert.IsTrue(str.Count() < 2);
+            Assert.IsTrue(result.Count < 2);
         }
     }
 
