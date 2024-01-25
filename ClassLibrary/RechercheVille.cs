@@ -22,7 +22,7 @@ namespace ClassLibrary
 
             if (texte.Length < 2)
                 throw new NotFoundException("Veuillez entrer un text d'au moins deux caractères");
-            return null;
+            throw new NotImplementedException();
 
             //string[] arr = texte.Split(' ');
             //foreach (var mot in arr)
