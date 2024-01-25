@@ -22,15 +22,17 @@ namespace ClassLibrary
 
             if (texte.Length < 2)
                 throw new NotFoundException("Veuillez entrer un text d'au moins deux caractères");
-            throw new NotImplementedException();
 
             //string[] arr = texte.Split(' ');
-            //foreach (var mot in arr)
-            //{
-            //    if (_villes.Contains(mot))
-            //        liste.Add(mot);
-            //}
-            //return liste;
+            if (texte.Length >= 2)
+            {
+                foreach(string ville in Villes)
+                    if(ville.StartsWith(texte))
+                        liste.Add(ville);
+            }
+                return liste;
+            //throw new NotImplementedException();
+
 
 
         }
