@@ -15,22 +15,38 @@ namespace RechercheVilleTester
         [SetUp]
         public void Setup()
         {
+           
             _rVille = new RechercheVille();
         }
 
         [Test]
-        public void RecherecheVille_villeCount_InferiorTo_2()
+        public void RecherecheVille_textLength_InferiorTo_2()
+        {
+            // Arrange
+            // Setup()
+
+
+
+            // Act & Assert
+
+            Assert.Throws<NotFoundException>(() => _rVille.Rechercher("a"));
+        }
+
+        [Ignore("A test plus tard")]
+        [Test]
+        public void RecherecheVille_textLength_SuperiorOrEqualTo_2_Return_Villes()
         {
             // Arrange
             // Setup()
 
             // Act
 
-            var result = _rVille.Rechercher("a");
+            var result = _rVille.Rechercher("Pa");
 
             // Assert
 
-            Assert.IsTrue(result.Count < 2);
+            Assert.IsTrue(result.Count >= 2);
+
         }
     }
 

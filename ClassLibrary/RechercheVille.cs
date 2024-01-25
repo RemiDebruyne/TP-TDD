@@ -10,13 +10,15 @@ namespace ClassLibrary
     {
         private List<string> _villes = new() { "Paris", "Budapest", "Skopje", "Rotterdam", "Valence", "Vancouver", "Amsterdam", "Vienne", "Sydney", "New York", "Londres", "Bangkok", "Hong Kong", "Dubaï", "Rome", "Istanbul" };
 
+
         public List<string> Rechercher(string texte)
         {
+            List<string> liste = new();
             //List<string> liste = new();
 
-            if (texte.Length > 2)
-                throw new NotImplementedException();
-            return null;
+            if (texte.Length < 2)
+               throw new NotFoundException("Veuillez entrer un text d'au moins deux caractères");
+            return liste;
 
             //string[] arr = texte.Split(' ');
             //foreach (var mot in arr)

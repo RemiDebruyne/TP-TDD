@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-    internal class NotFoundException : Exception
+    public class NotFoundException : Exception
     {
         public NotFoundException() { }
 
