@@ -26,9 +26,13 @@ namespace ClassLibrary
             //string[] arr = texte.Split(' ');
             if (texte.Length >= 2)
             {
-                foreach(string ville in Villes)
-                    if(ville.StartsWith(texte))
+                foreach (string ville in Villes)
+                {
+
+                    if (ville.ToLower().StartsWith(texte.ToLower()))
                         liste.Add(ville);
+                }
+
             }
                 return liste;
             //throw new NotImplementedException();

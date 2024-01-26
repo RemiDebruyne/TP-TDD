@@ -40,21 +40,43 @@ namespace RechercheVilleTester
             // Act
 
             var result = _rechercheVille.Rechercher(texte);
+
+            // Liste de teste arbitraire
+            List<string> liste = new()
+            {
+                "Valence",
+                "Vancouver",
+            };
+
             var testList = _rechercheVille.Villes.ToList();
+
+
             // Assert
+            CollectionAssert.AreEquivalent(result, liste);
 
-            // La fonction Rechercher fonctionne correctement mais le teste fonctionne car une string vide est un subset de ma liste. Je dois changer le teste pour qu'une string vide ne fonctionne pas.
-
+            // La fonction Rechercher fonctionne correctement mais le teste fonctionne car une string vide est un subset de ma liste. Je dois changer le teste pour qu'une string vide ne fonctionne pas
             //Assert.That(result, Is.SubsetOf(testList));
+
 
         }
 
-        //[Test]
-        //var result = _rechercheVille.Rechercher("Va");
+        [Test]
+        [TestCase("va")]
 
-    }
+        public void WhenRechercheVille_Not_CaseSensitive(string texte)
+        {
+            var result = _rechercheVille.Rechercher(texte);
 
-    /*  Implémenter une fonctionnalité de recherche de ville. La fonction prend une chaîne (texte de recherche) en entrée et renvoie les villes trouvées qui correspondent au texte de recherche.
+            List<string> liste = new()
+            {
+                "Valence",
+                "Vancouver",
+            };
+
+            CollectionAssert.AreEquivalent(liste, result);
+
+        }
+    }   /*  Implémenter une fonctionnalité de recherche de ville. La fonction prend une chaîne (texte de recherche) en entrée et renvoie les villes trouvées qui correspondent au texte de recherche.
  Exemple de villes : Paris, Budapest, Skopje, Rotterdam, Valence, Vancouver, Amsterdam, Vienne, Sydney, New York, Londres, Bangkok, Hong Kong, Dubaï, Rome, Istanbul
 
         Etapes du projet:
