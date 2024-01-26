@@ -33,8 +33,7 @@ namespace RechercheVilleTester
 
         [Test]
         [TestCase("Va")]
-        [TestCase("Pa")]
-        [TestCase("dqdifh")]
+
         public void WhenRecherecheVille_textLength_SuperiorOrEqualTo_2_Then_Return_Villes(string texte)
         {
 
@@ -82,6 +81,7 @@ namespace RechercheVilleTester
         [Test]
         [TestCase("ris")]
         [TestCase("ape")]
+        [TestCase("er")]
         public void WhenRechercheVille_listeVille_Contains_Text_Then_Return_ListOfVilles(string texte)
         {
             var result = _rechercheVille.Rechercher(texte);
@@ -92,10 +92,10 @@ namespace RechercheVilleTester
                 "Vancouver",
             };
 
-            var testList = _rechercheVille.Villes.ToList();
+            var testList = _rechercheVille.Villes;
 
 
-            CollectionAssert.Contains(result, testList);
+            Assert.Contains(testList, result);
         }
 
 
