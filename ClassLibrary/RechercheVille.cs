@@ -29,7 +29,8 @@ namespace ClassLibrary
                 foreach (string ville in Villes)
                 {
 
-                    if (ville.ToLower().StartsWith(texte.ToLower()))
+                    if (ville.ToLower().StartsWith(texte.ToLower()) || ville.ToLower().Contains(texte.ToLower()))
+                        
                         liste.Add(ville);
                 }
 

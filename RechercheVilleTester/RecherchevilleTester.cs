@@ -33,7 +33,8 @@ namespace RechercheVilleTester
 
         [Test]
         [TestCase("Va")]
-        [TestCase("va")]
+        [TestCase("Pa")]
+        [TestCase("dqdifh")]
         public void WhenRecherecheVille_textLength_SuperiorOrEqualTo_2_Then_Return_Villes(string texte)
         {
 
@@ -60,9 +61,10 @@ namespace RechercheVilleTester
 
         }
 
+
+
         [Test]
         [TestCase("va")]
-
         public void WhenRechercheVille_Not_CaseSensitive(string texte)
         {
             var result = _rechercheVille.Rechercher(texte);
@@ -76,6 +78,27 @@ namespace RechercheVilleTester
             CollectionAssert.AreEquivalent(liste, result);
 
         }
+
+        [Test]
+        [TestCase("ris")]
+        [TestCase("ape")]
+        public void WhenRechercheVille_listeVille_Contains_Text_Then_Return_ListOfVilles(string texte)
+        {
+            var result = _rechercheVille.Rechercher(texte);
+
+            List<string> liste = new()
+            {
+                "Valence",
+                "Vancouver",
+            };
+
+            var testList = _rechercheVille.Villes.ToList();
+
+
+            CollectionAssert.Contains(result, testList);
+        }
+
+
     }   /*  Implémenter une fonctionnalité de recherche de ville. La fonction prend une chaîne (texte de recherche) en entrée et renvoie les villes trouvées qui correspondent au texte de recherche.
  Exemple de villes : Paris, Budapest, Skopje, Rotterdam, Valence, Vancouver, Amsterdam, Vienne, Sydney, New York, Londres, Bangkok, Hong Kong, Dubaï, Rome, Istanbul
 
